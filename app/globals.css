@@ -134,15 +134,30 @@
 @media (prefers-reduced-motion: no-preference) {
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(1.25rem);
-    transition: opacity 0.75s cubic-bezier(0.32, 0.72, 0, 1),
-                transform 0.75s cubic-bezier(0.32, 0.72, 0, 1);
+    transform: translateY(3rem);
+    filter: blur(6px);
+    transition: opacity 0.9s cubic-bezier(0.32, 0.72, 0, 1),
+                transform 0.9s cubic-bezier(0.32, 0.72, 0, 1),
+                filter 0.9s cubic-bezier(0.32, 0.72, 0, 1);
   }
   .scroll-reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+  /* Variante más ligera para contenido denso (grids) */
+  .scroll-reveal-light {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.8s cubic-bezier(0.32, 0.72, 0, 1),
+                transform 0.8s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .scroll-reveal-light.in-view {
     opacity: 1;
     transform: translateY(0);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .scroll-reveal { opacity: 1; transform: none; }
+  .scroll-reveal,
+  .scroll-reveal-light { opacity: 1; transform: none; filter: none; }
 }

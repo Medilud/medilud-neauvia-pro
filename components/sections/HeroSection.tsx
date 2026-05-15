@@ -58,8 +58,9 @@ export function HeroSection() {
               className="flex items-center gap-4 mb-12"
               style={{
                 opacity: visible ? 1 : 0,
-                transform: visible ? "none" : "translateY(1rem)",
-                transition: "opacity 0.8s cubic-bezier(0.32, 0.72, 0, 1), transform 0.8s cubic-bezier(0.32, 0.72, 0, 1)",
+                transform: visible ? "none" : "translateY(2rem)",
+                filter: visible ? "blur(0px)" : "blur(4px)",
+                transition: "opacity 1s cubic-bezier(0.32, 0.72, 0, 1), transform 1s cubic-bezier(0.32, 0.72, 0, 1), filter 1s cubic-bezier(0.32, 0.72, 0, 1)",
               }}
             >
               <div className="w-8 h-[1px] bg-neauvia-red" />
@@ -73,8 +74,9 @@ export function HeroSection() {
               className="text-white mb-8 leading-[1.05]"
               style={{
                 opacity: visible ? 1 : 0,
-                transform: visible ? "none" : "translateY(1.5rem)",
-                transition: "opacity 0.9s 100ms cubic-bezier(0.32, 0.72, 0, 1), transform 0.9s 100ms cubic-bezier(0.32, 0.72, 0, 1)",
+                transform: visible ? "none" : "translateY(3rem)",
+                filter: visible ? "blur(0px)" : "blur(6px)",
+                transition: "opacity 1.1s 150ms cubic-bezier(0.32, 0.72, 0, 1), transform 1.1s 150ms cubic-bezier(0.32, 0.72, 0, 1), filter 1.1s 150ms cubic-bezier(0.32, 0.72, 0, 1)",
               }}
             >
               <span className="block text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
@@ -92,8 +94,9 @@ export function HeroSection() {
               className="text-white/50 text-base leading-relaxed mb-12 max-w-lg font-light"
               style={{
                 opacity: visible ? 1 : 0,
-                transform: visible ? "none" : "translateY(1rem)",
-                transition: "opacity 0.8s 200ms cubic-bezier(0.32, 0.72, 0, 1), transform 0.8s 200ms cubic-bezier(0.32, 0.72, 0, 1)",
+                transform: visible ? "none" : "translateY(2rem)",
+                filter: visible ? "blur(0px)" : "blur(4px)",
+                transition: "opacity 1s 280ms cubic-bezier(0.32, 0.72, 0, 1), transform 1s 280ms cubic-bezier(0.32, 0.72, 0, 1), filter 1s 280ms cubic-bezier(0.32, 0.72, 0, 1)",
               }}
             >
               Accede a toda la línea de fillers Neauvia México, programa de lealtad
@@ -105,8 +108,8 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row gap-4"
               style={{
                 opacity: visible ? 1 : 0,
-                transform: visible ? "none" : "translateY(1rem)",
-                transition: "opacity 0.8s 320ms cubic-bezier(0.32, 0.72, 0, 1), transform 0.8s 320ms cubic-bezier(0.32, 0.72, 0, 1)",
+                transform: visible ? "none" : "translateY(1.5rem)",
+                transition: "opacity 0.9s 420ms cubic-bezier(0.32, 0.72, 0, 1), transform 0.9s 420ms cubic-bezier(0.32, 0.72, 0, 1)",
               }}
             >
               {user ? (
@@ -154,7 +157,8 @@ export function HeroSection() {
               className="mt-16 pt-10 border-t border-white/10 flex flex-wrap gap-x-14 gap-y-4"
               style={{
                 opacity: visible ? 1 : 0,
-                transition: "opacity 0.8s 480ms cubic-bezier(0.32, 0.72, 0, 1)",
+                transform: visible ? "none" : "translateY(1rem)",
+                transition: "opacity 1s 600ms cubic-bezier(0.32, 0.72, 0, 1), transform 1s 600ms cubic-bezier(0.32, 0.72, 0, 1)",
               }}
             >
               {[

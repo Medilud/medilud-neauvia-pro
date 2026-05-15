@@ -44,7 +44,7 @@ export function ProductGrid() {
         </AnimateOnScroll>
 
         {/* Grid */}
-        <AnimateOnScroll delay={160}>
+        <AnimateOnScroll delay={160} variant="light">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-[#E5E7EB]">
           {filtered.map((product) => (
             <ProductCard key={product.id} product={product} />

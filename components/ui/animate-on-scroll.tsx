@@ -6,17 +6,21 @@ interface AnimateOnScrollProps {
   children: ReactNode;
   delay?: number;
   className?: string;
+  /** "full" (default) = translateY(3rem) + blur — for headings/labels.
+   *  "light" = translateY(1.5rem) no blur — for grids/dense content. */
+  variant?: "full" | "light";
 }
 
 /**
  * Wraps children in an IntersectionObserver-triggered scroll reveal.
- * CSS lives in globals.css (.scroll-reveal / .in-view).
+ * CSS lives in globals.css (.scroll-reveal / .scroll-reveal-light + .in-view).
  * Respects prefers-reduced-motion via media query in CSS.
  */
 export function AnimateOnScroll({
   children,
   delay = 0,
   className = "",
+  variant = "full",
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -35,15 +39,17 @@ export function AnimateOnScroll({
           observer.unobserve(el);
         }
       },
-      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, [delay]);
 
+  const baseClass = variant === "light" ? "scroll-reveal-light" : "scroll-reveal";
+
   return (
-    <div ref={ref} className={`scroll-reveal ${className}`}>
+    <div ref={ref} className={`${baseClass} ${className}`}>
       {children}
     </div>
   );
