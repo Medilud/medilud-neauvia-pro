@@ -35,7 +35,10 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <>
-      <article className="group bg-white border border-[#E5E7EB] hover:border-neauvia-red/30 transition-colors duration-300 flex flex-col">
+      <article
+        className="group bg-white border border-[#E5E7EB] hover:border-neauvia-red/30 hover:-translate-y-[3px] hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] flex flex-col"
+        style={{ transition: "transform 400ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 400ms cubic-bezier(0.32, 0.72, 0, 1), border-color 300ms cubic-bezier(0.32, 0.72, 0, 1)" }}
+      >
         {/* Imagen — área limpia para fotografía de producto */}
         <div className="aspect-[4/3] bg-[#F8F8F6] flex items-center justify-center overflow-hidden">
           <div className="flex flex-col items-center gap-2 opacity-30">
@@ -65,11 +68,14 @@ export function ProductCard({ product }: ProductCardProps) {
             {user ? (
               <button
                 onClick={handleAdd}
-                className={`w-full flex items-center justify-center gap-2 text-[12px] font-semibold uppercase tracking-[0.1em] py-2.5 transition-all duration-200 ${
+                className={`w-full flex items-center justify-center gap-2 text-[12px] font-semibold uppercase tracking-[0.1em] py-2.5 active:scale-[0.98] ${
                   added
                     ? "bg-[#1A1A1A] text-white"
-                    : "bg-neauvia-red text-white hover:bg-[#a50f27]"
+                    : "bg-neauvia-red text-white"
                 }`}
+                style={{ transition: "background-color 300ms cubic-bezier(0.32, 0.72, 0, 1), transform 200ms cubic-bezier(0.32, 0.72, 0, 1)" }}
+                onMouseEnter={(e) => { if (!added) (e.currentTarget as HTMLButtonElement).style.backgroundColor = "oklch(0.38 0.18 18.2)"; }}
+                onMouseLeave={(e) => { if (!added) (e.currentTarget as HTMLButtonElement).style.backgroundColor = ""; }}
               >
                 <Plus className="w-3 h-3" />
                 {added ? "Agregado" : "Agregar al Pedido"}
@@ -77,7 +83,8 @@ export function ProductCard({ product }: ProductCardProps) {
             ) : (
               <button
                 onClick={handleAdd}
-                className="w-full flex items-center justify-center gap-2 text-[11px] font-medium uppercase tracking-[0.1em] py-2.5 text-[#9CA3AF] border border-[#E5E7EB] hover:border-neauvia-red hover:text-neauvia-red transition-colors duration-200"
+                className="w-full flex items-center justify-center gap-2 text-[11px] font-medium uppercase tracking-[0.1em] py-2.5 text-[#9CA3AF] border border-[#E5E7EB] hover:border-neauvia-red hover:text-neauvia-red active:scale-[0.98]"
+                style={{ transition: "border-color 300ms cubic-bezier(0.32, 0.72, 0, 1), color 300ms cubic-bezier(0.32, 0.72, 0, 1), transform 200ms cubic-bezier(0.32, 0.72, 0, 1)" }}
               >
                 <Lock className="w-3 h-3" />
                 Precio disponible al registrarse

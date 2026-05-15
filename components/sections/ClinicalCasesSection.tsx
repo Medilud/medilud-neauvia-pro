@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useAuth } from "@/lib/auth-context";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 export function ClinicalCasesSection() {
   const { user } = useAuth();
@@ -13,9 +14,9 @@ export function ClinicalCasesSection() {
   };
 
   return (
-    <section className="py-20 bg-[#F8F8F6]">
+    <section className="py-24 bg-[#F8F8F6]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="mb-14">
+        <AnimateOnScroll className="mb-14">
           <div className="flex items-center gap-4 mb-5">
             <div className="w-6 h-[1px] bg-neauvia-red" />
             <span className="text-neauvia-red text-[11px] font-semibold uppercase tracking-[0.25em]">
@@ -30,8 +31,9 @@ export function ClinicalCasesSection() {
             Contribuye a la comunidad Neauvia México compartiendo tus casos.
             Los mejores serán destacados en nuestra plataforma educativa.
           </p>
-        </div>
+        </AnimateOnScroll>
 
+        <AnimateOnScroll delay={80}>
         <div className="max-w-3xl">
           {submitted ? (
             <div className="border border-neauvia-border bg-white p-10">
@@ -128,6 +130,7 @@ export function ClinicalCasesSection() {
             </form>
           )}
         </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

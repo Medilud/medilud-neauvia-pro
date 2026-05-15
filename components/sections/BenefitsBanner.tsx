@@ -1,4 +1,5 @@
 import { Tag, Award, FileText, Truck, Shield } from "lucide-react";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 const benefits = [
   { icon: Tag, title: "15% OFF", desc: "En tu primera compra" },
@@ -12,6 +13,7 @@ export function BenefitsBanner() {
   return (
     <section className="bg-white border-b border-[#E5E7EB]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <AnimateOnScroll>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
           {benefits.map((b, i) => (
             <div
@@ -30,6 +32,7 @@ export function BenefitsBanner() {
             </div>
           ))}
         </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
+
 const videos = [
   { title: "Introducción a PEG-HA Technology", duration: "12 min", category: "Fundamentos" },
   { title: "Protocolo de Aplicación: Intense", duration: "18 min", category: "Técnica" },
@@ -9,9 +11,9 @@ const videos = [
 
 export function EducationSection() {
   return (
-    <section id="educacion" className="py-20 bg-white">
+    <section id="educacion" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="mb-14">
+        <AnimateOnScroll className="mb-14">
           <div className="flex items-center gap-4 mb-5">
             <div className="w-6 h-[1px] bg-neauvia-red" />
             <span className="text-neauvia-red text-[11px] font-semibold uppercase tracking-[0.25em]">
@@ -26,8 +28,9 @@ export function EducationSection() {
             Videotecas, protocolos y casos clínicos de Neauvia International.
             Contenido exclusivo para médicos registrados.
           </p>
-        </div>
+        </AnimateOnScroll>
 
+        <AnimateOnScroll delay={100}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#E5E7EB]">
           {videos.map((video) => (
             <div
@@ -55,6 +58,7 @@ export function EducationSection() {
             </div>
           ))}
         </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

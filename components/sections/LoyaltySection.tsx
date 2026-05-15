@@ -1,3 +1,5 @@
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
+
 const tiers = [
   {
     name: "Silver",
@@ -39,10 +41,10 @@ const tiers = [
 
 export function LoyaltySection() {
   return (
-    <section id="lealtad" className="py-20 bg-white">
+    <section id="lealtad" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Encabezado */}
-        <div className="mb-14">
+        <AnimateOnScroll className="mb-14">
           <div className="flex items-center gap-4 mb-5">
             <div className="w-6 h-[1px] bg-neauvia-red" />
             <span className="text-neauvia-red text-[11px] font-semibold uppercase tracking-[0.25em]">
@@ -53,8 +55,9 @@ export function LoyaltySection() {
             Recompensas por<br />
             <span className="font-semibold">tu fidelidad</span>
           </h2>
-        </div>
+        </AnimateOnScroll>
 
+        <AnimateOnScroll delay={100}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#E5E7EB]">
           {tiers.map((tier) => (
             <div
@@ -110,6 +113,7 @@ export function LoyaltySection() {
             </div>
           ))}
         </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
+
 const events = [
   {
     date: "Jun 2025",
@@ -24,9 +26,9 @@ const events = [
 
 export function EventsSection() {
   return (
-    <section id="eventos" className="py-20 bg-[#F8F8F6]">
+    <section id="eventos" className="py-24 bg-[#F8F8F6]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="mb-14">
+        <AnimateOnScroll className="mb-14">
           <div className="flex items-center gap-4 mb-5">
             <div className="w-6 h-[1px] bg-neauvia-red" />
             <span className="text-neauvia-red text-[11px] font-semibold uppercase tracking-[0.25em]">
@@ -37,13 +39,14 @@ export function EventsSection() {
             Eventos y<br />
             <span className="font-semibold">Formación</span>
           </h2>
-        </div>
+        </AnimateOnScroll>
 
+        <AnimateOnScroll delay={100}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#E5E7EB]">
           {events.map((event) => (
             <div
               key={event.title}
-              className="bg-white p-8 group hover:bg-neauvia-dark transition-colors duration-300 cursor-pointer"
+              className="bg-white p-8 group hover:bg-neauvia-dark transition-colors cursor-pointer"
             >
               <div className="flex items-center justify-between mb-6">
                 <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#9CA3AF] group-hover:text-white/40 transition-colors">
@@ -65,6 +68,7 @@ export function EventsSection() {
             </div>
           ))}
         </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

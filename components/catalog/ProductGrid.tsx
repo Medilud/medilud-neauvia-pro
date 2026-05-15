@@ -5,6 +5,7 @@ import { products } from "@/lib/products";
 import type { ProductLine } from "@/lib/products";
 import { FilterBar } from "./FilterBar";
 import { ProductCard } from "./ProductCard";
+import { AnimateOnScroll } from "@/components/ui/animate-on-scroll";
 
 type FilterValue = ProductLine | "all";
 
@@ -17,10 +18,10 @@ export function ProductGrid() {
       : products.filter((p) => p.line === activeFilter);
 
   return (
-    <section id="catalogo" className="py-20 bg-[#F8F8F6]">
+    <section id="catalogo" className="py-24 bg-[#F8F8F6]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Encabezado editorial */}
-        <div className="mb-12">
+        <AnimateOnScroll className="mb-12">
           <div className="flex items-center gap-4 mb-5">
             <div className="w-6 h-[1px] bg-neauvia-red" />
             <span className="text-neauvia-red text-[11px] font-semibold uppercase tracking-[0.25em]">
@@ -35,14 +36,15 @@ export function ProductGrid() {
             Tecnología PEG-HA de última generación. Precios exclusivos disponibles
             para médicos registrados con cédula de especialidad.
           </p>
-        </div>
+        </AnimateOnScroll>
 
         {/* Filtros */}
-        <div className="mb-10">
+        <AnimateOnScroll delay={80} className="mb-10">
           <FilterBar active={activeFilter} onChange={setActiveFilter} />
-        </div>
+        </AnimateOnScroll>
 
         {/* Grid */}
+        <AnimateOnScroll delay={160}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-[#E5E7EB]">
           {filtered.map((product) => (
             <ProductCard key={product.id} product={product} />
@@ -56,6 +58,7 @@ export function ProductGrid() {
             </p>
           </div>
         )}
+        </AnimateOnScroll>
       </div>
     </section>
   );
