@@ -10,65 +10,58 @@ export function HeroSection() {
 
   return (
     <>
-      <section className="relative min-h-[85vh] flex items-center bg-neauvia-dark overflow-hidden">
-        {/* Fondo con degradado sutil */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            background:
-              "radial-gradient(ellipse at 80% 50%, #C41230 0%, transparent 60%)",
-          }}
-        />
+      <section className="relative min-h-[90vh] flex items-center bg-[#111010] overflow-hidden">
+        {/* Acento rojo lateral — elemento editorial, no tech */}
+        <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-neauvia-red" />
 
-        {/* Patrón de líneas sutil */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(90deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px), repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px)",
-          }}
-        />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="max-w-2xl">
-            {/* Tag */}
-            <div className="inline-flex items-center gap-2 bg-neauvia-red/20 border border-neauvia-red/40 rounded px-3 py-1 mb-6">
-              <span className="w-1.5 h-1.5 bg-neauvia-red rounded-full" />
-              <span className="text-neauvia-red text-xs font-semibold uppercase tracking-widest">
+        <div className="relative max-w-7xl mx-auto px-10 sm:px-16 lg:px-24 py-28 w-full">
+          <div className="max-w-3xl">
+            {/* Label editorial */}
+            <div className="flex items-center gap-4 mb-12">
+              <div className="w-8 h-[1px] bg-neauvia-red" />
+              <span className="text-neauvia-red text-[11px] font-semibold uppercase tracking-[0.25em]">
                 Exclusivo para Médicos Especialistas
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              El catálogo Neauvia
-              <br />
-              <span className="text-neauvia-red">diseñado para</span>
-              <br />
-              tu práctica médica.
+            {/* Headline editorial — peso mixto */}
+            <h1 className="text-white mb-8 leading-[1.05]">
+              <span className="block text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
+                El catálogo Neauvia
+              </span>
+              <span className="block text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-neauvia-red">
+                diseñado para
+              </span>
+              <span className="block text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
+                tu práctica.
+              </span>
             </h1>
 
-            <p className="text-lg text-white/70 mb-10 max-w-xl leading-relaxed">
-              Accede a toda la línea de fillers Neauvia México, programa de lealtad exclusivo,
-              recursos educativos y soporte especializado. Solo para médicos con cédula de
-              especialidad.
+            <p className="text-white/50 text-base leading-relaxed mb-12 max-w-lg font-light">
+              Accede a toda la línea de fillers Neauvia México, programa de lealtad
+              por volumen, recursos educativos y soporte especializado.
             </p>
 
+            {/* CTAs — estilo refinado */}
             <div className="flex flex-col sm:flex-row gap-4">
               {user ? (
-                <a href="#catalogo" className="btn-neauvia text-center">
+                <a
+                  href="#catalogo"
+                  className="inline-flex items-center justify-center bg-neauvia-red text-white text-sm font-semibold px-8 py-3.5 hover:bg-[#a50f27] transition-colors duration-300"
+                >
                   Ver Catálogo
                 </a>
               ) : (
                 <>
                   <button
                     onClick={() => setAuthOpen(true)}
-                    className="btn-neauvia"
+                    className="inline-flex items-center justify-center bg-neauvia-red text-white text-sm font-semibold px-8 py-3.5 hover:bg-[#a50f27] transition-colors duration-300"
                   >
-                    Registrarme Ahora
+                    Registrarme
                   </button>
                   <a
                     href="#catalogo"
-                    className="btn-neauvia-outline border-white/40 text-white hover:bg-white hover:text-neauvia-dark text-center"
+                    className="inline-flex items-center justify-center border border-white/25 text-white/80 text-sm font-medium px-8 py-3.5 hover:border-white/50 hover:text-white transition-colors duration-300"
                   >
                     Ver Catálogo
                   </a>
@@ -76,16 +69,20 @@ export function HeroSection() {
               )}
             </div>
 
-            {/* Stats */}
-            <div className="mt-14 flex flex-wrap gap-8 border-t border-white/10 pt-8">
+            {/* Stats — tipografía editorial, sin cards */}
+            <div className="mt-16 pt-10 border-t border-white/10 flex flex-wrap gap-x-14 gap-y-4">
               {[
-                { value: "7+", label: "Productos Neauvia" },
+                { value: "7", label: "Productos Neauvia" },
                 { value: "3", label: "Niveles de Lealtad" },
                 { value: "15%", label: "OFF Primera Compra" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-2xl font-bold text-white">{stat.value}</div>
-                  <div className="text-sm text-white/50 mt-0.5">{stat.label}</div>
+                  <div className="text-3xl font-light text-white tracking-tight">
+                    {stat.value}
+                  </div>
+                  <div className="text-[11px] text-white/35 uppercase tracking-[0.15em] mt-1">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>

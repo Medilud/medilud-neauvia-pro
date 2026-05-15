@@ -1,17 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { ShoppingCart, Lock } from "lucide-react";
+import { Plus, Lock } from "lucide-react";
 import type { Product } from "@/lib/products";
 import { useCart } from "@/lib/cart-context";
 import { useAuth } from "@/lib/auth-context";
 import { AuthModal } from "@/components/auth/AuthModal";
-import { Badge } from "@/components/ui/badge";
 
-const lineColors: Record<string, string> = {
-  intense: "bg-blue-50 text-blue-700 border-blue-200",
-  stimulate: "bg-amber-50 text-amber-700 border-amber-200",
-  hydro: "bg-teal-50 text-teal-700 border-teal-200",
+const lineLabel: Record<string, string> = {
+  intense: "Intense",
+  stimulate: "Stimulate",
+  hydro: "Hydro Deluxe",
 };
 
 interface ProductCardProps {
@@ -31,63 +30,54 @@ export function ProductCard({ product }: ProductCardProps) {
     }
     add(product);
     setAdded(true);
-    setTimeout(() => setAdded(false), 1500);
+    setTimeout(() => setAdded(false), 1400);
   };
 
   return (
     <>
-      <div className="group bg-white border border-neauvia-border rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col">
-        {/* Imagen */}
-        <div className="aspect-square bg-neauvia-offwhite flex items-center justify-center overflow-hidden p-6">
-          <div className="w-full h-full flex items-center justify-center">
-            {/* Placeholder visual mientras no hay imagen oficial */}
-            <div className="flex flex-col items-center gap-2 text-neauvia-gray/40">
-              <div className="w-20 h-24 border-2 border-dashed border-neauvia-border rounded-lg flex items-center justify-center">
-                <span className="text-xs font-semibold text-neauvia-gray/60 text-center px-1">
-                  Imagen<br />próximamente
-                </span>
-              </div>
-            </div>
+      <article className="group bg-white border border-[#E5E7EB] hover:border-neauvia-red/30 transition-colors duration-300 flex flex-col">
+        {/* Imagen — área limpia para fotografía de producto */}
+        <div className="aspect-[4/3] bg-[#F8F8F6] flex items-center justify-center overflow-hidden">
+          <div className="flex flex-col items-center gap-2 opacity-30">
+            <div className="w-12 h-16 border border-[#D1D5DB]" />
+            <span className="text-[10px] uppercase tracking-[0.15em] text-[#9CA3AF]">
+              Imagen próximamente
+            </span>
           </div>
         </div>
 
         {/* Contenido */}
-        <div className="p-4 flex flex-col flex-1">
-          <div className="mb-3">
-            <Badge
-              variant="outline"
-              className={`text-[10px] font-semibold uppercase tracking-wider mb-2 ${lineColors[product.line]}`}
-            >
-              {product.line === "hydro" ? "Hydro Deluxe" : product.line}
-            </Badge>
-            <h3 className="font-bold text-neauvia-dark text-base leading-snug">
+        <div className="p-5 flex flex-col flex-1">
+          <div className="mb-4 flex-1">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-neauvia-red mb-2">
+              {lineLabel[product.line] ?? product.line}
+            </div>
+            <h3 className="font-semibold text-neauvia-dark text-[15px] leading-snug tracking-wide">
               {product.name}
             </h3>
-            <p className="text-xs text-neauvia-gray mt-1.5 leading-relaxed">
+            <p className="text-[12px] text-[#9CA3AF] mt-2 leading-relaxed font-light">
               {product.desc}
             </p>
           </div>
 
-          <div className="mt-auto pt-3 border-t border-neauvia-border">
+          {/* Acción */}
+          <div className="pt-4 border-t border-[#E5E7EB]">
             {user ? (
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-neauvia-gray">Precio al registrarse</span>
-                <button
-                  onClick={handleAdd}
-                  className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded transition-all duration-200 ${
-                    added
-                      ? "bg-green-500 text-white"
-                      : "bg-neauvia-red text-white hover:brightness-90"
-                  }`}
-                >
-                  <ShoppingCart className="w-3 h-3" />
-                  {added ? "Agregado" : "Agregar"}
-                </button>
-              </div>
+              <button
+                onClick={handleAdd}
+                className={`w-full flex items-center justify-center gap-2 text-[12px] font-semibold uppercase tracking-[0.1em] py-2.5 transition-all duration-200 ${
+                  added
+                    ? "bg-[#1A1A1A] text-white"
+                    : "bg-neauvia-red text-white hover:bg-[#a50f27]"
+                }`}
+              >
+                <Plus className="w-3 h-3" />
+                {added ? "Agregado" : "Agregar al Pedido"}
+              </button>
             ) : (
               <button
                 onClick={handleAdd}
-                className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-neauvia-gray border border-neauvia-border rounded py-2 hover:border-neauvia-red hover:text-neauvia-red transition-colors"
+                className="w-full flex items-center justify-center gap-2 text-[11px] font-medium uppercase tracking-[0.1em] py-2.5 text-[#9CA3AF] border border-[#E5E7EB] hover:border-neauvia-red hover:text-neauvia-red transition-colors duration-200"
               >
                 <Lock className="w-3 h-3" />
                 Precio disponible al registrarse
@@ -95,7 +85,7 @@ export function ProductCard({ product }: ProductCardProps) {
             )}
           </div>
         </div>
-      </div>
+      </article>
 
       <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
     </>

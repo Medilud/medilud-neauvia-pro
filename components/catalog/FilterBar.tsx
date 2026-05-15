@@ -14,15 +14,15 @@ const filters: FilterValue[] = ["all", "intense", "stimulate", "hydro"];
 
 export function FilterBar({ active, onChange }: FilterBarProps) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-0 border-b border-[#E5E7EB]">
       {filters.map((f) => (
         <button
           key={f}
           onClick={() => onChange(f)}
-          className={`px-4 py-1.5 rounded text-sm font-semibold uppercase tracking-wide transition-all duration-200 ${
+          className={`text-[12px] font-semibold uppercase tracking-[0.12em] px-5 py-3 transition-all duration-200 border-b-2 -mb-[2px] ${
             active === f
-              ? "bg-neauvia-red text-white shadow-sm"
-              : "bg-white border border-neauvia-border text-neauvia-gray hover:border-neauvia-red hover:text-neauvia-red"
+              ? "border-neauvia-red text-neauvia-dark"
+              : "border-transparent text-[#9CA3AF] hover:text-neauvia-dark"
           }`}
         >
           {lineLabels[f]}

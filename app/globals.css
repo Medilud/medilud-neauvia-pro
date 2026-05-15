@@ -34,10 +34,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.5);
+  --radius-lg: calc(var(--radius) * 0.5);
+  --radius-xl: calc(var(--radius) * 0.5);
 
   /* Paleta Neauvia */
   --color-neauvia-red: #C41230;
@@ -54,7 +54,7 @@
   --card-foreground: oklch(0.12 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.12 0 0);
-  /* Neauvia Red #C41230 en OKLCH */
+  /* Neauvia Red #C41230 */
   --primary: oklch(0.476 0.205 18.2);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.97 0 0);
@@ -67,8 +67,8 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.476 0.205 18.2);
-  --radius: 0.25rem;
-  --sidebar: oklch(0.985 0 0);
+  --radius: 0.125rem;
+  --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0.12 0 0);
   --sidebar-primary: oklch(0.476 0.205 18.2);
   --sidebar-primary-foreground: oklch(1 0 0);
@@ -80,22 +80,22 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-montserrat), sans-serif;
+    @apply border-border;
+    box-sizing: border-box;
   }
   html {
-    @apply font-sans;
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-}
-
-/* Utilidades Neauvia */
-.btn-neauvia {
-  @apply bg-neauvia-red text-white font-semibold rounded px-6 py-2.5 transition-all duration-300 hover:brightness-90 active:scale-95;
-}
-
-.btn-neauvia-outline {
-  @apply border border-neauvia-red text-neauvia-red font-semibold rounded px-6 py-2.5 transition-all duration-300 hover:bg-neauvia-red hover:text-white;
+  body {
+    font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+    @apply bg-background text-foreground;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  /* Botones sin border-radius por defecto — estética premium */
+  button, [type="button"], [type="submit"] {
+    border-radius: 0;
+  }
 }
