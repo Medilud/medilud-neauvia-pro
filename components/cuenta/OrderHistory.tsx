@@ -18,7 +18,7 @@ const placeholderOrders = [
 export function OrderHistory() {
   if (placeholderOrders.length === 0) {
     return (
-      <div className="text-center py-12 text-neauvia-gray">
+      <div className="text-center py-12 text-[#9CA3AF]">
         <Package className="w-10 h-10 mx-auto mb-3 opacity-30" />
         <p className="text-sm">Aún no tienes pedidos registrados.</p>
       </div>
@@ -30,23 +30,24 @@ export function OrderHistory() {
       {placeholderOrders.map((order) => (
         <div
           key={order.folio}
-          className="border border-neauvia-border rounded-lg p-4 hover:shadow-sm transition-shadow"
+          className="border border-neauvia-border p-4 hover:border-neauvia-dark"
+          style={{ transition: "border-color 300ms cubic-bezier(0.32, 0.72, 0, 1)" }}
         >
           <div className="flex items-start justify-between gap-4">
             <div>
-              <div className="text-xs font-semibold text-neauvia-red mb-0.5">
+              <div className="text-[10px] font-semibold text-neauvia-red uppercase tracking-[0.15em] mb-1">
                 {order.folio}
               </div>
               <div className="text-sm font-medium text-neauvia-dark">
                 {order.productos.join(" · ")}
               </div>
-              <div className="text-xs text-neauvia-gray mt-1">{order.fecha}</div>
+              <div className="text-xs text-[#9CA3AF] mt-1">{order.fecha}</div>
             </div>
             <span
-              className={`text-xs font-semibold px-2 py-1 rounded shrink-0 ${
+              className={`text-[10px] font-semibold uppercase tracking-[0.1em] px-2 py-1 shrink-0 ${
                 order.estado === "Entregado"
-                  ? "bg-green-100 text-green-700"
-                  : "bg-amber-100 text-amber-700"
+                  ? "bg-neauvia-offwhite text-neauvia-dark border border-neauvia-border"
+                  : "bg-neauvia-dark text-white"
               }`}
             >
               {order.estado}

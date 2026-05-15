@@ -1,24 +1,9 @@
 import type { UserData } from "@/lib/auth-context";
 
 const levelConfig = {
-  Silver: {
-    cashback: "3%",
-    color: "from-slate-400 to-slate-600",
-    next: "Gold",
-    pointsNeeded: 5000,
-  },
-  Gold: {
-    cashback: "4%",
-    color: "from-amber-400 to-amber-600",
-    next: "Platinum",
-    pointsNeeded: 15000,
-  },
-  Platinum: {
-    cashback: "5%",
-    color: "from-indigo-400 to-indigo-700",
-    next: null,
-    pointsNeeded: null,
-  },
+  Silver: { cashback: "3%", next: "Gold", pointsNeeded: 5000 },
+  Gold: { cashback: "4%", next: "Platinum", pointsNeeded: 15000 },
+  Platinum: { cashback: "5%", next: null, pointsNeeded: null },
 };
 
 interface LoyaltyCardProps {
@@ -32,34 +17,47 @@ export function LoyaltyCard({ user }: LoyaltyCardProps) {
     : 100;
 
   return (
-    <div className={`rounded-xl bg-gradient-to-br ${config.color} p-6 text-white`}>
-      <div className="flex justify-between items-start mb-4">
+    <div className="bg-[#111010] border-t-2 border-neauvia-red p-6 text-white">
+      <div className="flex justify-between items-start mb-8">
         <div>
-          <div className="text-xs font-semibold uppercase tracking-widest opacity-80 mb-1">
+          <div className="text-[10px] font-semibold uppercase tracking-[0.25em] text-neauvia-red mb-2">
             Neauvia Pro
           </div>
-          <div className="text-2xl font-bold">{user.loyaltyLevel}</div>
+          <div className="text-2xl font-semibold tracking-tight">{user.loyaltyLevel}</div>
         </div>
         <div className="text-right">
-          <div className="text-xs opacity-80">Cashback</div>
-          <div className="text-2xl font-bold">{config.cashback}</div>
+          <div className="text-[10px] uppercase tracking-[0.15em] text-white/40 mb-1">
+            Cashback
+          </div>
+          <div className="text-3xl font-light text-neauvia-red">{config.cashback}</div>
         </div>
       </div>
 
-      <div className="text-sm font-medium truncate mb-4">{user.nombre}</div>
+      <div className="text-[13px] font-light text-white/60 mb-6 truncate">{user.nombre}</div>
 
       {config.pointsNeeded && (
         <div>
-          <div className="flex justify-between text-xs opacity-80 mb-1">
+          <div className="flex justify-between text-[10px] uppercase tracking-[0.1em] text-white/40 mb-2">
             <span>{user.loyaltyPoints} pts</span>
-            <span>{config.pointsNeeded} pts → {config.next}</span>
+            <span>
+              {config.pointsNeeded} pts hacia {config.next}
+            </span>
           </div>
-          <div className="w-full bg-white/20 rounded-full h-1.5">
+          <div className="w-full bg-white/10 h-[1px]">
             <div
-              className="bg-white rounded-full h-1.5 transition-all duration-500"
-              style={{ width: `${progress}%` }}
+              className="bg-neauvia-red h-[1px]"
+              style={{
+                width: `${progress}%`,
+                transition: "width 800ms cubic-bezier(0.32, 0.72, 0, 1)",
+              }}
             />
           </div>
+        </div>
+      )}
+
+      {!config.pointsNeeded && (
+        <div className="text-[10px] uppercase tracking-[0.15em] text-white/30">
+          Nivel máximo
         </div>
       )}
     </div>

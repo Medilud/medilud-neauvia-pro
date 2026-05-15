@@ -102,19 +102,47 @@
 }
 
 @layer components {
-  /* Botón primario Neauvia */
+  /* Botón primario Neauvia — con spring physics */
   .btn-neauvia {
-    @apply inline-flex items-center justify-center bg-neauvia-red text-white text-[12px] font-semibold tracking-[0.1em] uppercase px-6 py-2.5 transition-colors duration-200 cursor-pointer;
+    @apply inline-flex items-center justify-center bg-neauvia-red text-white text-[12px] font-semibold tracking-[0.1em] uppercase px-6 py-2.5 cursor-pointer;
+    transition: background-color 400ms cubic-bezier(0.32, 0.72, 0, 1),
+                transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
   }
   .btn-neauvia:hover:not(:disabled) {
     background-color: oklch(0.38 0.18 18.2);
   }
+  .btn-neauvia:active:not(:disabled) {
+    transform: scale(0.98);
+  }
 
   /* Botón secundario Neauvia */
   .btn-neauvia-outline {
-    @apply inline-flex items-center justify-center border border-neauvia-border text-neauvia-dark text-[12px] font-medium tracking-[0.06em] uppercase px-6 py-2.5 transition-colors duration-200 bg-transparent cursor-pointer;
+    @apply inline-flex items-center justify-center border border-neauvia-border text-neauvia-dark text-[12px] font-medium tracking-[0.06em] uppercase px-6 py-2.5 bg-transparent cursor-pointer;
+    transition: border-color 300ms cubic-bezier(0.32, 0.72, 0, 1),
+                color 300ms cubic-bezier(0.32, 0.72, 0, 1),
+                transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
   }
   .btn-neauvia-outline:hover:not(:disabled) {
     @apply border-neauvia-dark;
   }
+  .btn-neauvia-outline:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+}
+
+/* ─── Scroll reveal ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: opacity 0.75s cubic-bezier(0.32, 0.72, 0, 1),
+                transform 0.75s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .scroll-reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal { opacity: 1; transform: none; }
 }
