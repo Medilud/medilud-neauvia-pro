@@ -94,8 +94,27 @@
     font-size: 15px;
     line-height: 1.6;
   }
-  /* Botones sin border-radius por defecto — estética premium */
-  button, [type="button"], [type="submit"] {
+  /* Sin border-radius — estética premium */
+  button, [type="button"], [type="submit"],
+  input, select, textarea {
     border-radius: 0;
+  }
+}
+
+@layer components {
+  /* Botón primario Neauvia */
+  .btn-neauvia {
+    @apply inline-flex items-center justify-center bg-neauvia-red text-white text-[12px] font-semibold tracking-[0.1em] uppercase px-6 py-2.5 transition-colors duration-200 cursor-pointer;
+  }
+  .btn-neauvia:hover:not(:disabled) {
+    background-color: oklch(0.38 0.18 18.2);
+  }
+
+  /* Botón secundario Neauvia */
+  .btn-neauvia-outline {
+    @apply inline-flex items-center justify-center border border-neauvia-border text-neauvia-dark text-[12px] font-medium tracking-[0.06em] uppercase px-6 py-2.5 transition-colors duration-200 bg-transparent cursor-pointer;
+  }
+  .btn-neauvia-outline:hover:not(:disabled) {
+    @apply border-neauvia-dark;
   }
 }

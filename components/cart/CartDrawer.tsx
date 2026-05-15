@@ -32,7 +32,7 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
             <ShoppingBag className="w-5 h-5 text-neauvia-red" />
             Carrito
             {totalItems > 0 && (
-              <span className="ml-auto bg-neauvia-red text-white text-xs font-bold rounded-full px-2 py-0.5">
+              <span className="ml-auto bg-neauvia-red text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center">
                 {totalItems}
               </span>
             )}
@@ -57,7 +57,7 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
                   className="flex gap-4 py-4 border-b border-neauvia-border last:border-0"
                 >
                   {/* Placeholder imagen */}
-                  <div className="w-16 h-16 bg-neauvia-offwhite rounded border border-neauvia-border shrink-0 flex items-center justify-center">
+                  <div className="w-16 h-16 bg-neauvia-offwhite border border-neauvia-border shrink-0 flex items-center justify-center">
                     <span className="text-[9px] text-neauvia-gray/60 text-center px-1 leading-tight">
                       {item.name}
                     </span>
@@ -78,7 +78,7 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
                     <div className="flex items-center gap-2 mt-2">
                       <button
                         onClick={() => setQuantity(item.id, item.quantity - 1)}
-                        className="w-6 h-6 border border-neauvia-border rounded flex items-center justify-center hover:border-neauvia-red hover:text-neauvia-red transition-colors"
+                        className="w-6 h-6 border border-neauvia-border flex items-center justify-center hover:border-neauvia-red hover:text-neauvia-red transition-colors"
                         aria-label="Reducir cantidad"
                       >
                         <Minus className="w-3 h-3" />
@@ -88,7 +88,7 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
                       </span>
                       <button
                         onClick={() => setQuantity(item.id, item.quantity + 1)}
-                        className="w-6 h-6 border border-neauvia-border rounded flex items-center justify-center hover:border-neauvia-red hover:text-neauvia-red transition-colors"
+                        className="w-6 h-6 border border-neauvia-border flex items-center justify-center hover:border-neauvia-red hover:text-neauvia-red transition-colors"
                         aria-label="Aumentar cantidad"
                       >
                         <Plus className="w-3 h-3" />

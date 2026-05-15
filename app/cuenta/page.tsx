@@ -28,7 +28,7 @@ export default function CuentaPage() {
         <Header />
         <main className="flex-1 flex items-center justify-center bg-neauvia-offwhite pt-16">
           <div className="text-center p-8 max-w-sm">
-            <div className="w-16 h-16 bg-neauvia-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 border border-neauvia-border bg-neauvia-offwhite flex items-center justify-center mx-auto mb-6">
               <User className="w-7 h-7 text-neauvia-red" />
             </div>
             <h2 className="text-xl font-bold text-neauvia-dark mb-2">
@@ -55,13 +55,13 @@ export default function CuentaPage() {
     <>
       <Header />
       <main className="flex-1 bg-neauvia-offwhite pt-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <h1 className="text-2xl font-bold text-neauvia-dark mb-8">Mi Cuenta</h1>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-12">
+          <h1 className="text-3xl font-light text-neauvia-dark mb-10 tracking-tight">Mi Cuenta</h1>
 
           <div className="flex flex-col md:flex-row gap-6">
             {/* Sidebar */}
             <aside className="w-full md:w-56 shrink-0">
-              <nav className="bg-white border border-neauvia-border rounded-lg overflow-hidden">
+              <nav className="bg-white border border-neauvia-border overflow-hidden">
                 {sidebarItems.map((item) => (
                   <button
                     key={item.id}
@@ -87,7 +87,7 @@ export default function CuentaPage() {
             </aside>
 
             {/* Contenido */}
-            <div className="flex-1 bg-white border border-neauvia-border rounded-lg p-6">
+            <div className="flex-1 bg-white border border-neauvia-border p-6">
               {section === "pedidos" && (
                 <div>
                   <h2 className="text-lg font-bold text-neauvia-dark mb-5">
@@ -140,9 +140,9 @@ export default function CuentaPage() {
                     ].map((t) => (
                       <div
                         key={t.tier}
-                        className={`border rounded-lg p-4 text-sm ${
+                        className={`border p-4 text-sm ${
                           user.loyaltyLevel === t.tier
-                            ? "border-neauvia-red bg-neauvia-red/5"
+                            ? "border-neauvia-red bg-[#FDF5F7]"
                             : "border-neauvia-border"
                         }`}
                       >

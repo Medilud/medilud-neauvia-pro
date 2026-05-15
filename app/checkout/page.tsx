@@ -80,8 +80,8 @@ export default function CheckoutPage() {
         <Header />
         <main className="flex-1 flex items-center justify-center bg-neauvia-offwhite pt-16">
           <div className="text-center p-8 max-w-sm">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <CheckCircle className="w-8 h-8 text-green-600" />
+            <div className="w-16 h-16 border border-neauvia-border bg-neauvia-offwhite flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-7 h-7 text-neauvia-red" />
             </div>
             <h2 className="text-2xl font-bold text-neauvia-dark mb-2">
               ¡Pedido Recibido!
@@ -133,14 +133,14 @@ export default function CheckoutPage() {
     <>
       <Header />
       <main className="flex-1 bg-neauvia-offwhite pt-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <h1 className="text-2xl font-bold text-neauvia-dark mb-8">Checkout</h1>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-12">
+          <h1 className="text-3xl font-light text-neauvia-dark mb-10 tracking-tight">Checkout</h1>
 
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Resumen del pedido */}
               <div className="lg:col-span-2 space-y-4">
-                <div className="bg-white border border-neauvia-border rounded-lg p-5">
+                <div className="bg-white border border-neauvia-border p-5">
                   <h2 className="font-bold text-neauvia-dark mb-4">
                     Resumen del Pedido
                   </h2>
@@ -175,7 +175,7 @@ export default function CheckoutPage() {
                 </div>
 
                 {/* Notas */}
-                <div className="bg-white border border-neauvia-border rounded-lg p-5">
+                <div className="bg-white border border-neauvia-border p-5">
                   <h2 className="font-bold text-neauvia-dark mb-3">
                     Notas del Pedido (opcional)
                   </h2>
@@ -184,14 +184,14 @@ export default function CheckoutPage() {
                     onChange={(e) => setNotes(e.target.value)}
                     rows={3}
                     placeholder="Instrucciones especiales, urgencia, preferencia de entrega..."
-                    className="w-full text-sm border border-neauvia-border rounded px-3 py-2 resize-none focus:outline-none focus:ring-1 focus:ring-neauvia-red"
+                    className="w-full text-sm border border-neauvia-border px-3 py-2.5 resize-none focus:outline-none focus:border-neauvia-dark transition-colors bg-neauvia-offwhite"
                   />
                 </div>
               </div>
 
               {/* Panel derecho */}
               <div className="space-y-4">
-                <div className="bg-white border border-neauvia-border rounded-lg p-5">
+                <div className="bg-white border border-neauvia-border p-5">
                   <h2 className="font-bold text-neauvia-dark mb-4">
                     Datos de Entrega
                   </h2>
@@ -215,7 +215,7 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
-                <div className="bg-neauvia-offwhite border border-neauvia-border rounded-lg p-4 text-xs text-neauvia-gray">
+                <div className="bg-neauvia-offwhite border border-neauvia-border p-4 text-xs text-neauvia-gray">
                   <p className="font-semibold text-neauvia-dark mb-1">¿Cómo funciona?</p>
                   <p className="leading-relaxed">
                     Al confirmar, nuestro equipo validará tu pedido y se pondrá en contacto

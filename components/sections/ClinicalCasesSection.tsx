@@ -13,113 +13,121 @@ export function ClinicalCasesSection() {
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-neauvia-red mb-2">
-            Comunidad Médica
-          </p>
-          <h2 className="text-3xl font-bold text-neauvia-dark mb-3">
-            Comparte un Caso Clínico
+    <section className="py-20 bg-[#F8F8F6]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="mb-14">
+          <div className="flex items-center gap-4 mb-5">
+            <div className="w-6 h-[1px] bg-neauvia-red" />
+            <span className="text-neauvia-red text-[11px] font-semibold uppercase tracking-[0.25em]">
+              Comunidad Médica
+            </span>
+          </div>
+          <h2 className="text-4xl font-light text-neauvia-dark tracking-tight">
+            Comparte un<br />
+            <span className="font-semibold">Caso Clínico</span>
           </h2>
-          <p className="text-sm text-neauvia-gray max-w-md mx-auto">
+          <p className="text-[#9CA3AF] mt-4 text-sm leading-relaxed max-w-md font-light">
             Contribuye a la comunidad Neauvia México compartiendo tus casos.
             Los mejores serán destacados en nuestra plataforma educativa.
           </p>
         </div>
 
-        {submitted ? (
-          <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
-            <div className="text-3xl mb-3">✓</div>
-            <h3 className="font-bold text-green-800 mb-1">¡Caso enviado!</h3>
-            <p className="text-sm text-green-700">
-              Nuestro equipo revisará tu caso y te notificará si es publicado.
-            </p>
-          </div>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="bg-neauvia-offwhite border border-neauvia-border rounded-xl p-6 space-y-4"
-          >
-            {!user && (
-              <div className="bg-amber-50 border border-amber-200 rounded p-3 text-xs text-amber-800">
-                Debes iniciar sesión para enviar un caso clínico.
-              </div>
-            )}
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1">
-                <label className="text-xs font-semibold text-neauvia-dark uppercase tracking-wide">
-                  Área de Tratamiento *
-                </label>
-                <input
-                  type="text"
-                  required
-                  disabled={!user}
-                  placeholder="Ej. Surcos nasogenianos"
-                  className="w-full text-sm border border-neauvia-border rounded px-3 py-2 bg-white focus:outline-none focus:ring-1 focus:ring-neauvia-red disabled:opacity-50"
-                />
-              </div>
-              <div className="space-y-1">
-                <label className="text-xs font-semibold text-neauvia-dark uppercase tracking-wide">
-                  Producto Utilizado *
-                </label>
-                <select
-                  required
-                  disabled={!user}
-                  className="w-full text-sm border border-neauvia-border rounded px-3 py-2 bg-white focus:outline-none focus:ring-1 focus:ring-neauvia-red disabled:opacity-50"
-                  defaultValue=""
-                >
-                  <option value="" disabled>Seleccionar producto</option>
-                  <option>Intense</option>
-                  <option>Intense Rheology</option>
-                  <option>Intense Flux</option>
-                  <option>Stimulate</option>
-                  <option>Stimulate Man</option>
-                  <option>Hydro Deluxe</option>
-                  <option>Hydro Deluxe Man</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="space-y-1">
-              <label className="text-xs font-semibold text-neauvia-dark uppercase tracking-wide">
-                Descripción del Caso *
-              </label>
-              <textarea
-                required
-                disabled={!user}
-                rows={4}
-                placeholder="Describe el caso clínico, técnica utilizada, dosis y resultados observados..."
-                className="w-full text-sm border border-neauvia-border rounded px-3 py-2 bg-white resize-none focus:outline-none focus:ring-1 focus:ring-neauvia-red disabled:opacity-50"
-              />
-            </div>
-
-            <div className="space-y-1">
-              <label className="text-xs font-semibold text-neauvia-dark uppercase tracking-wide">
-                Fotos (antes/después)
-              </label>
-              <input
-                type="file"
-                multiple
-                accept="image/*"
-                disabled={!user}
-                className="w-full text-sm text-neauvia-gray file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-neauvia-red file:text-white hover:file:brightness-90 disabled:opacity-50"
-              />
-              <p className="text-xs text-neauvia-gray">
-                Asegúrate de contar con consentimiento informado del paciente.
+        <div className="max-w-3xl">
+          {submitted ? (
+            <div className="border border-neauvia-border bg-white p-10">
+              <div className="w-8 h-[1px] bg-neauvia-red mb-6" />
+              <h3 className="font-semibold text-neauvia-dark text-lg mb-2">Caso enviado</h3>
+              <p className="text-sm text-[#9CA3AF] font-light leading-relaxed">
+                Nuestro equipo revisará tu caso y te notificará si es publicado en la plataforma educativa.
               </p>
             </div>
-
-            <button
-              type="submit"
-              disabled={!user}
-              className="btn-neauvia disabled:opacity-50 disabled:cursor-not-allowed"
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white border border-neauvia-border p-8 space-y-5"
             >
-              Enviar Caso Clínico
-            </button>
-          </form>
-        )}
+              {!user && (
+                <div className="border border-neauvia-border bg-neauvia-offwhite px-4 py-3 text-[12px] text-[#9CA3AF] uppercase tracking-[0.08em]">
+                  Inicia sesión para enviar un caso clínico.
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="space-y-1.5">
+                  <label className="text-[10px] font-semibold text-neauvia-dark uppercase tracking-[0.2em]">
+                    Área de Tratamiento *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    disabled={!user}
+                    placeholder="Ej. Surcos nasogenianos"
+                    className="w-full text-sm border border-neauvia-border px-3 py-2.5 bg-[#F8F8F6] focus:outline-none focus:border-neauvia-dark disabled:opacity-40 transition-colors"
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[10px] font-semibold text-neauvia-dark uppercase tracking-[0.2em]">
+                    Producto Utilizado *
+                  </label>
+                  <select
+                    required
+                    disabled={!user}
+                    className="w-full text-sm border border-neauvia-border px-3 py-2.5 bg-[#F8F8F6] focus:outline-none focus:border-neauvia-dark disabled:opacity-40 transition-colors"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Seleccionar producto</option>
+                    <option>Intense</option>
+                    <option>Intense Rheology</option>
+                    <option>Intense Flux</option>
+                    <option>Stimulate</option>
+                    <option>Stimulate Man</option>
+                    <option>Hydro Deluxe</option>
+                    <option>Hydro Deluxe Man</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[10px] font-semibold text-neauvia-dark uppercase tracking-[0.2em]">
+                  Descripción del Caso *
+                </label>
+                <textarea
+                  required
+                  disabled={!user}
+                  rows={4}
+                  placeholder="Describe el caso clínico, técnica utilizada, dosis y resultados observados..."
+                  className="w-full text-sm border border-neauvia-border px-3 py-2.5 bg-[#F8F8F6] resize-none focus:outline-none focus:border-neauvia-dark disabled:opacity-40 transition-colors"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-[10px] font-semibold text-neauvia-dark uppercase tracking-[0.2em]">
+                  Fotos (antes/después)
+                </label>
+                <input
+                  type="file"
+                  multiple
+                  accept="image/*"
+                  disabled={!user}
+                  className="w-full text-sm text-[#9CA3AF] file:mr-3 file:py-2 file:px-4 file:border-0 file:text-[10px] file:font-semibold file:uppercase file:tracking-[0.1em] file:bg-neauvia-red file:text-white hover:file:opacity-90 disabled:opacity-40"
+                />
+                <p className="text-[11px] text-[#9CA3AF] font-light">
+                  Asegúrate de contar con consentimiento informado del paciente.
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={!user}
+                  className="btn-neauvia disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  Enviar Caso Clínico
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
       </div>
     </section>
   );

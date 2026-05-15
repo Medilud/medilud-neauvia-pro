@@ -72,7 +72,7 @@ export function AuthModal({ open, onClose, defaultTab = "login" }: AuthModalProp
       <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-neauvia-dark font-bold text-lg">
-            <span className="text-neauvia-red">Neauvia Pro</span> — Acceso Médico
+            <span className="text-neauvia-red">Neauvia Pro</span>: Acceso Médico
           </DialogTitle>
         </DialogHeader>
 
@@ -110,7 +110,7 @@ export function AuthModal({ open, onClose, defaultTab = "login" }: AuthModalProp
                 />
               </div>
               {loginError && (
-                <p className="text-xs text-red-600">{loginError}</p>
+                <p className="text-xs text-neauvia-red">{loginError}</p>
               )}
               <button
                 type="submit"
@@ -213,7 +213,7 @@ export function AuthModal({ open, onClose, defaultTab = "login" }: AuthModalProp
               </div>
 
               {/* Declaración bajo protesta */}
-              <div className="flex items-start gap-2 bg-neauvia-offwhite rounded p-3 mt-2">
+              <div className="flex items-start gap-2 bg-neauvia-offwhite border border-neauvia-border p-3 mt-2">
                 <input
                   type="checkbox"
                   id="protesta"
@@ -227,7 +227,7 @@ export function AuthModal({ open, onClose, defaultTab = "login" }: AuthModalProp
               </div>
 
               {registerError && (
-                <p className="text-xs text-red-600">{registerError}</p>
+                <p className="text-xs text-neauvia-red">{registerError}</p>
               )}
 
               <button

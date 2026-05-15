@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Neauvia Pro — Portal Exclusivo para Médicos",
+  title: "Neauvia Pro: Portal Exclusivo para Médicos",
   description:
     "Plataforma B2B de pedidos digitales de fillers Neauvia, exclusiva para médicos especialistas en México.",
 };
