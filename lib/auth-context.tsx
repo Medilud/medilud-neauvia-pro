@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export interface UserData {
   nombre: string;
@@ -41,19 +41,16 @@ const STORAGE_KEY = "neauvia_user";
 const ACCOUNTS_KEY = "neauvia_accounts";
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<UserData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
+  const [user, setUser] = useState<UserData | null>(() => {
+    if (typeof window === "undefined") return null;
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) setUser(JSON.parse(stored));
+      return stored ? (JSON.parse(stored) as UserData) : null;
     } catch {
-      // sesión corrupta — ignorar
-    } finally {
-      setIsLoading(false);
+      return null;
     }
-  }, []);
+  });
+  const [isLoading, setIsLoading] = useState(false);
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
