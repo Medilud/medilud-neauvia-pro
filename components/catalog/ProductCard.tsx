@@ -39,14 +39,24 @@ export function ProductCard({ product }: ProductCardProps) {
         className="group bg-white border border-[#E5E7EB] hover:border-neauvia-red/30 hover:-translate-y-[3px] hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] flex flex-col"
         style={{ transition: "transform 400ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 400ms cubic-bezier(0.32, 0.72, 0, 1), border-color 300ms cubic-bezier(0.32, 0.72, 0, 1)" }}
       >
-        {/* Imagen — área limpia para fotografía de producto */}
-        <div className="aspect-[4/3] bg-[#F8F8F6] flex items-center justify-center overflow-hidden">
-          <div className="flex flex-col items-center gap-2 opacity-30">
-            <div className="w-12 h-16 border border-[#D1D5DB]" />
-            <span className="text-[10px] uppercase tracking-[0.15em] text-[#9CA3AF]">
-              Imagen próximamente
-            </span>
-          </div>
+        {/* Imagen de producto */}
+        <div className="aspect-square bg-[#F8F8F6] flex items-center justify-center overflow-hidden p-6">
+          {product.img ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={product.img}
+              alt={product.name}
+              className="h-full w-full object-contain"
+              style={{ transition: "transform 400ms cubic-bezier(0.32, 0.72, 0, 1)" }}
+            />
+          ) : (
+            <div className="flex flex-col items-center gap-2 opacity-30">
+              <div className="w-12 h-16 border border-[#D1D5DB]" />
+              <span className="text-[10px] uppercase tracking-[0.15em] text-[#9CA3AF]">
+                Imagen próximamente
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Contenido */}

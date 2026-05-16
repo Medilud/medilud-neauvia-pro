@@ -11,24 +11,7 @@ export interface Product {
 }
 
 export const products: Product[] = [
-  {
-    id: "stimulate",
-    name: "Stimulate",
-    line: "stimulate",
-    desc: "Filler PEG-HA enriquecido con CaHA para restauración de volumen en tejido blando.",
-    price: 0,
-    unit: "jeringa",
-    img: "/images/stimulate.jpg",
-  },
-  {
-    id: "stimulate-man",
-    name: "Stimulate Man",
-    line: "stimulate",
-    desc: "Formulación específica para anatomía masculina. Restauración de volumen con resultados naturales.",
-    price: 0,
-    unit: "jeringa",
-    img: "/images/stimulate-man.jpg",
-  },
+  // ── Intense ────────────────────────────────────────────────────
   {
     id: "intense",
     name: "Intense",
@@ -36,7 +19,7 @@ export const products: Product[] = [
     desc: "Filler PEG-HA para restauración de volumen en subcutis. Alta cohesividad y duración prolongada.",
     price: 0,
     unit: "jeringa",
-    img: "/images/intense.jpg",
+    img: "/images/intense.png",
   },
   {
     id: "intense-rheology",
@@ -45,7 +28,7 @@ export const products: Product[] = [
     desc: "Filler PEG-HA para corrección intradermal. Ideal para líneas de expresión y arrugas superficiales.",
     price: 0,
     unit: "jeringa",
-    img: "/images/intense-rheology.jpg",
+    img: "/images/intense-rheology.png",
   },
   {
     id: "intense-flux",
@@ -54,16 +37,72 @@ export const products: Product[] = [
     desc: "Filler PEG-HA intradermal de alta fluidez. Excelente para contorno y definición fina.",
     price: 0,
     unit: "jeringa",
-    img: "/images/intense-flux.jpg",
+    img: "/images/intense-flux.png",
   },
+  {
+    id: "intense-lv",
+    name: "Intense LV",
+    line: "intense",
+    desc: "Filler PEG-HA de bajo volumen para tratamientos de precisión en zonas delicadas.",
+    price: 0,
+    unit: "jeringa",
+    img: "/images/intense-lv.png",
+  },
+  {
+    id: "intense-lips",
+    name: "Intense Lips",
+    line: "intense",
+    desc: "Filler PEG-HA formulado específicamente para la región labial. Hidratación y volumen natural.",
+    price: 0,
+    unit: "jeringa",
+    img: "/images/intense-lips.png",
+  },
+  {
+    id: "intense-rose",
+    name: "Intense Rose",
+    line: "intense",
+    desc: "Filler PEG-HA con formulación enriquecida. Ideal para zonas de alta expresividad facial.",
+    price: 0,
+    unit: "jeringa",
+    img: "/images/intense-rose.png",
+  },
+  {
+    id: "intense-man",
+    name: "Intense Man",
+    line: "intense",
+    desc: "Formulación específica para anatomía masculina. Resultados estructurados y naturales.",
+    price: 0,
+    unit: "jeringa",
+    img: "/images/intense-man.png",
+  },
+  // ── Stimulate ──────────────────────────────────────────────────
+  {
+    id: "stimulate",
+    name: "Stimulate",
+    line: "stimulate",
+    desc: "Filler PEG-HA con DualCore y CaHA para bioestimulación y restauración de volumen en tejido blando.",
+    price: 0,
+    unit: "jeringa",
+    img: "/images/stimulate.png",
+  },
+  {
+    id: "stimulate-man",
+    name: "Stimulate Man",
+    line: "stimulate",
+    desc: "Formulación específica para anatomía masculina. Bioestimulación con resultados estructurados.",
+    price: 0,
+    unit: "jeringa",
+    img: "/images/stimulate-man.png",
+  },
+  // ── Hydro Deluxe ───────────────────────────────────────────────
   {
     id: "hydro-deluxe",
     name: "Hydro Deluxe",
     line: "hydro",
-    desc: "Hidrogel lineal no crosslinked enriquecido con CaHA para bioestimulación e hidratación profunda.",
+    desc: "Hidrogel lineal no crosslinked con CaHA para bioestimulación e hidratación dérmica profunda.",
     price: 0,
     unit: "jeringa",
-    img: "/images/hydro-deluxe.jpg",
+    img: "/images/hydro-deluxe.png",
   },
   {
     id: "hydro-deluxe-man",
@@ -72,7 +111,7 @@ export const products: Product[] = [
     desc: "Formulación específica para piel masculina. Bioestimulación adaptada a la estructura dérmica del hombre.",
     price: 0,
     unit: "jeringa",
-    img: "/images/hydro-deluxe-man.jpg",
+    img: "/images/hydro-deluxe-man.png",
   },
 ];
 
