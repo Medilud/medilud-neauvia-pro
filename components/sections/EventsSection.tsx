@@ -41,7 +41,6 @@ export function EventsSection() {
           </h2>
         </AnimateOnScroll>
 
-        <AnimateOnScroll delay={100} variant="light">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#E5E7EB]">
           {events.map((event) => (
             <div
@@ -68,7 +67,6 @@ export function EventsSection() {
             </div>
           ))}
         </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );

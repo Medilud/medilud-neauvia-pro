@@ -30,7 +30,6 @@ export function EducationSection() {
           </p>
         </AnimateOnScroll>
 
-        <AnimateOnScroll delay={100} variant="light">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#E5E7EB]">
           {videos.map((video) => (
             <div
@@ -58,7 +57,6 @@ export function EducationSection() {
             </div>
           ))}
         </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );

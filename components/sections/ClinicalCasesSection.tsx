@@ -33,7 +33,6 @@ export function ClinicalCasesSection() {
           </p>
         </AnimateOnScroll>
 
-        <AnimateOnScroll delay={80}>
         <div className="max-w-3xl">
           {submitted ? (
             <div className="border border-neauvia-border bg-white p-10">
@@ -130,7 +129,6 @@ export function ClinicalCasesSection() {
             </form>
           )}
         </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );
